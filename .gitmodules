@@ -1,0 +1,12 @@
+[submodule "prestoshat-backend-auth"]
+	path = prestoshat-backend-auth
+	url = https://github.com/upneto/prestoshat-backend-auth.git
+[submodule "prestoshat-backend-data"]
+	path = prestoshat-backend-data
+	url = https://github.com/upneto/prestoshat-backend-data.git
+[submodule "prestoshat-backend-games"]
+	path = prestoshat-backend-games
+	url = https://github.com/upneto/prestoshat-backend-games.git
+[submodule "prestoshat-backend-gateway"]
+	path = prestoshat-backend-gateway
+	url = https://github.com/upneto/prestoshat-backend-gateway.git
