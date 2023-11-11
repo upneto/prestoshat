@@ -10,3 +10,6 @@
 [submodule "prestoshat-backend-gateway"]
 	path = prestoshat-backend-gateway
 	url = https://github.com/upneto/prestoshat-backend-gateway.git
+[submodule "prestoshat-frontend-react"]
+	path = prestoshat-frontend-react
+	url = https://github.com/upneto/prestoshat-frontend-react.git
