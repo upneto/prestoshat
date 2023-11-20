@@ -1,0 +1,63 @@
+package br.com.prestoshat.persistence.model;
+
+import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+
+/**
+ * The persistent class for the dt_clientes database table.
+ * 
+ */
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity
+@Table(name="dt_game")
+public class Game implements Serializable {
+
+	/**
+	 * Serial
+	 */
+	private static final long serialVersionUID = -5925378078816888144L;
+
+	@Id
+	private long id;
+
+	@Column(name="data_criacao")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date dataCriacao;
+
+	@OneToMany(mappedBy="game", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	private List<Artwork> artworks;
+	
+	@Temporal(TemporalType.DATE)
+	private Date dataCriacao;
+	
+	private String informacao;
+
+	private String nome;
+
+	@Column(name="nome_razao_social")
+	private String nomeRazaoSocial;
+
+
+}

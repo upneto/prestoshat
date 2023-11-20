@@ -1,0 +1,41 @@
+package br.com.prestoshat.persistence.model.constants;
+
+import lombok.Getter;
+
+@Getter
+public enum TipoStatus2 {
+
+	A_INICIAR(1, "A INICIAR"),
+	JOGANDO(2, "JOGANDO"),
+	FINALIZADO(3, "FINALIZADO");
+	
+	private int id;
+	private String descricao;
+	
+	private TipoStatus2(int id, String descricao) {
+		this.id = id;
+		this.descricao = descricao;
+	}
+	
+	public static TipoStatus2 getBy(String descricao) {
+		TipoStatus2 tipo = null;
+		for(TipoStatus2 item : TipoStatus2.values()) {
+			if(item.getDescricao().equalsIgnoreCase(descricao)) {
+				tipo = item;
+				break;
+			}
+		}
+		return tipo;
+	}
+	
+	public static TipoStatus2 getBy(int id) {
+		TipoStatus2 tipo = null;
+		for(TipoStatus2 item : TipoStatus2.values()) {
+			if(item.getId() == id) {
+				tipo = item;
+				break;
+			}
+		}
+		return tipo;
+	}
+}

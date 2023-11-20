@@ -1,0 +1,32 @@
+package br.com.prestoshat.persistence.model;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
+@Builder
+@Embeddable
+public class GameJogadorKey implements Serializable {
+
+	/** Serial */
+	private static final long serialVersionUID = 7873125936063420790L;
+
+	@Column(name = "game_id")
+	private long gameId;
+	
+	@Column(name = "jogador_id")
+	private long jogadorId;
+}

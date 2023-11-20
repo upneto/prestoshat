@@ -1,0 +1,53 @@
+package br.com.prestoshat.persistence.model.constants;
+
+import lombok.Getter;
+
+@Getter
+public enum TipoGenero {
+
+	POINT_AND_CLICK(2, "Point and click"),	
+	FIGHTING(4, "Luta"),
+	SHOOTER(5, "Tiro"),
+	MUSIC(7, "Musica"),
+	PLATFORM(8, "Plataforma"),
+	PUZZLE(9, "Quebra Cabeça"),
+	RACING(10, "Corrida"),
+	RTS(11, "Estrategia em tempo Real (RTS)"),
+	RPG(12, "RPG"),
+	SIMULATOR(13, "Simulador"),
+	SPORT(14, "Esporte"),
+	
+	Strategy(15, "Estrategia"),
+	TBS(16, "Estrategia baseada em turnos (TBS)")
+	;
+		
+	private int id;
+	private String descricao;
+	
+	private TipoGenero(int id, String descricao) {
+		this.id = id;
+		this.descricao = descricao;
+	}
+	
+	public static TipoGenero getBy(String descricao) {
+		TipoGenero tipo = null;
+		for(TipoGenero item : TipoGenero.values()) {
+			if(item.descricao.equalsIgnoreCase(descricao)) {
+				tipo = item;
+				break;
+			}
+		}
+		return tipo;
+	}
+	
+	public static TipoGenero getBy(int id) {
+		TipoGenero tipo = null;
+		for(TipoGenero item : TipoGenero.values()) {
+			if(item.id == id) {
+				tipo = item;
+				break;
+			}
+		}
+		return tipo;
+	}
+}

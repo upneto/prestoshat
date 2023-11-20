@@ -1,0 +1,42 @@
+version: "3.9"
+services:
+  db_auth:
+    image: postgres:latest
+    container_name: db_auth
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+    networks:
+      - fmba-bridge
+    ports:
+      - 5432:5432
+    volumes:
+      - db:/var/lib/postgres
+
+  app_auth:
+    image: fmba-backend/app_auth:1.0
+    container_name: app_auth
+    restart: on-failure
+    depends_on:
+      - db_auth
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - "8081:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db_auth:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=root
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update      
+      - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.PostgreSQLDialect
+    networks:
+      - fmba-bridge
+
+networks:
+  fmba-bridge:
+    driver: bridge
+
+volumes:
+  db:

@@ -1,0 +1,37 @@
+package br.com.prestoshat.persistence.model.constants;
+
+public enum TipoArtwork {
+
+	PRINT_TELA(1, "A INICIAR"),
+	CAPA(2, "JOGANDO");
+		
+	private int id;
+	private String descricao;
+	
+	private TipoArtwork(int id, String descricao) {
+		this.id = id;
+		this.descricao = descricao;
+	}
+	
+	public static TipoArtwork getBy(String descricao) {
+		TipoArtwork tipo = null;
+		for(TipoArtwork item : TipoArtwork.values()) {
+			if(item.descricao.equalsIgnoreCase(descricao)) {
+				tipo = item;
+				break;
+			}
+		}
+		return tipo;
+	}
+	
+	public static TipoArtwork getBy(int id) {
+		TipoArtwork tipo = null;
+		for(TipoArtwork item : TipoArtwork.values()) {
+			if(item.id == id) {
+				tipo = item;
+				break;
+			}
+		}
+		return tipo;
+	}
+}
