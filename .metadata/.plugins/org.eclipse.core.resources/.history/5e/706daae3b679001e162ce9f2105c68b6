@@ -1,9 +1,0 @@
-package br.com.prestoshat.persistence.dao;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import br.com.prestoshat.persistence.model.Cliente;
-
-public interface ClienteRepository extends JpaRepository<Cliente, Long> {
-
-}
